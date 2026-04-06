@@ -1,0 +1,3678 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Architectura — Location d'appartements en Algérie</title>
+  <meta name="description" content="Spécialiste de la location d'appartements en Algérie. Appartements, studios et duplex disponibles à la location dans les principales villes algériennes."/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent-primary: #8b5cf6;
+      --accent-secondary: #0ea5e9;
+      --accent-tertiary: #10b981;
+      --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 50%, #10b981 100%);
+      --accent-gradient-reverse: linear-gradient(135deg, #10b981 0%, #0ea5e9 50%, #8b5cf6 100%);
+      --accent-gradient-light: linear-gradient(135deg, #a78bfa 0%, #38bdf8 50%, #34d399 100%);
+      --muted: #64748b;
+      --muted-light: #f8fafc;
+      --muted-dark: #475569;
+      --text-primary: #ffffff;
+      --text-secondary: #e2e8f0;
+      --text-muted: #cbd5e1;
+      --bg: #0f172a;
+      --bg-light: #1e293b;
+      --bg-dark: #0c1425;
+      --card: rgba(30, 41, 59, 0.8);
+      --card-light: rgba(51, 65, 85, 0.9);
+      --glass: rgba(30, 41, 59, 0.85);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --max-width: 1900px;
+      --radius: 20px;
+      --radius-sm: 10px;
+      --radius-lg: 30px;
+      --shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      --shadow-light: 0 8px 20px rgba(0, 0, 0, 0.2);
+      --shadow-accent: 0 0 30px rgba(139, 92, 246, 0.25);
+      --gradient-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    }
+
+    * { 
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      max-width: 100vw;
+    }
+    
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+      position: relative;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Background animé */
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      background: var(--gradient-bg);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Overlay pour améliorer la lisibilité */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.9) 0%,
+        rgba(30, 41, 59, 0.7) 50%,
+        rgba(139, 92, 246, 0.2) 100%
+      );
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Typographie améliorée */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text-primary);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    }
+    
+    h1 {
+      font-size: 3.2rem;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+      text-shadow: none;
+    }
+    
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background: var(--accent-gradient);
+      border-radius: 2px;
+      box-shadow: var(--shadow-accent);
+    }
+    
+    h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+    
+    p {
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      font-size: 1.15rem;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+    
+    button {
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      border: none;
+      font-weight: 600;
+    }
+    
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 3.2rem;
+      margin-bottom: 20px;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+    }
+    
+    .section-title::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    /* Header amélioré - CORRIGÉ POUR LE DÉPASSEMENT */
+    header {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      transition: all 0.3s ease;
+      width: 100%;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      width: 100%;
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+    
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      min-width: 0;
+      flex-shrink: 0;
+    }
+    
+    .logo {
+      width: 40px;
+      height: 40px;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      border-radius: var(--radius-sm);
+      font-weight: 800;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-accent);
+      flex-shrink: 0;
+    }
+    
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    
+    .brand-name {
+      font-size: 1.3rem;
+      font-weight: 800;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .brand-tagline {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      min-width: 0;
+    }
+    
+    nav a {
+      color: var(--text-secondary);
+      font-weight: 600;
+      position: relative;
+      padding: 8px 0;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+    
+    nav a:hover {
+      color: #a78bfa;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gradient);
+      transition: width 0.3s ease;
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      flex-shrink: 0;
+    }
+    
+    .header-action-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      color: var(--text-secondary);
+      font-size: 1rem;
+      position: relative;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+    
+    .header-action-btn:hover {
+      background: rgba(139, 92, 246, 0.15);
+      color: white;
+      transform: translateY(-2px);
+      border-color: rgba(139, 92, 246, 0.4);
+    }
+    
+    .action-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: var(--accent-gradient);
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      min-width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .cta {
+      background: var(--accent-gradient);
+      color: white;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+      border: none;
+      white-space: nowrap;
+      font-size: 0.9rem;
+    }
+    
+    .cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(139, 92, 246, 0.4);
+      background: var(--accent-gradient-light);
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-left: 10px;
+    }
+    
+    /* Hero Section - CARROUSEL CORRIGÉ */
+    .hero {
+      padding: 80px 0;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      min-height: calc(100vh - 80px);
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    .hero-content {
+      flex: 2;
+      width: 100%;
+      min-width: 0;
+    }
+    
+    .hero-carousel {
+      flex: 1;
+      height: 450px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      position: relative;
+      width: 100%;
+    }
+    
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: var(--radius);
+    }
+    
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.5s ease;
+      width: 100%;
+    }
+    
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+      flex-shrink: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* CORRECTION CRITIQUE : Images du carrousel avec dimensions fixes */
+    .carousel-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    
+    /* Conteneur pour garantir la taille des images */
+    .carousel-image-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      background: rgba(30, 41, 59, 0.9);
+      border: 2px solid rgba(139, 92, 246, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: white;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+    
+    .carousel-btn:hover {
+      background: rgba(139, 92, 246, 0.2);
+      transform: translateY(-50%) scale(1.1);
+      border-color: rgba(139, 92, 246, 0.6);
+    }
+    
+    .carousel-prev {
+      left: 15px;
+    }
+    
+    .carousel-next {
+      right: 15px;
+    }
+    
+    .carousel-indicators {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+    
+    .indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid white;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .indicator.active {
+      background: var(--accent-gradient);
+      border-color: transparent;
+    }
+    
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, 
+        rgba(139, 92, 246, 0.15) 0%, 
+        rgba(14, 165, 233, 0.1) 50%,
+        rgba(16, 185, 129, 0.15) 100%);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-weight: 800;
+      color: #e2e8f0;
+      margin-bottom: 20px;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 
+        0 4px 15px rgba(139, 92, 246, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      cursor: default;
+      user-select: none;
+    }
+
+    @keyframes kickerEntrance {
+      0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+        filter: blur(2px);
+      }
+      70% {
+        transform: translateY(-5px) scale(1.02);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    .kicker {
+      animation: kickerEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    
+    .hero p {
+      font-size: 1.15rem;
+      margin-bottom: 30px;
+      max-width: 600px;
+      color: var(--text-secondary);
+    }
+    
+    .hero-actions {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      min-width: 0;
+      white-space: nowrap;
+    }
+    
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: white;
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+      border: none;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(139, 92, 246, 0.4);
+      background: var(--accent-gradient-light);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid rgba(139, 92, 246, 0.5);
+      color: #a78bfa;
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(139, 92, 246, 0.1);
+      transform: translateY(-3px);
+      border-color: rgba(139, 92, 246, 0.8);
+      color: white;
+    }
+    
+    /* Features améliorée */
+    .features {
+      padding: 80px 0;
+      background: transparent;
+      position: relative;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      width: 100%;
+    }
+    
+    .feature-card {
+      background: var(--card);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(139, 92, 246, 0.15);
+      border-radius: var(--radius);
+      padding: 30px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      color: var(--text-secondary);
+      box-shadow: var(--shadow);
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    .feature-card h3 {
+      color: var(--text-primary);
+      margin-bottom: 15px;
+    }
+    
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(139, 92, 246, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      border: 2px solid rgba(139, 92, 246, 0.3);
+      transition: all 0.4s ease;
+    }
+    
+    .feature-icon i {
+      font-size: 28px;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ============================================ */
+    /* SECTION STATS - CORRIGÉE POUR MOBILE */
+    /* ============================================ */
+    .stats-section {
+      padding: 80px 0;
+      position: relative;
+      background: transparent;
+      z-index: 1;
+    }
+
+    .stats-container {
+      display: block;
+    }
+
+    .stats-intro {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .stats-intro h2 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+    }
+
+    .stats-intro p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      opacity: 0.95;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Grille de cercles - AGGRANDIS SUR MOBILE */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      text-align: center;
+      justify-items: center;
+      width: 100%;
+    }
+
+    /* Cercle principal - PLUS GRAND SUR MOBILE */
+    .stat-card {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Cercle de fond */
+    .stat-circle {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(30, 41, 59, 0.8) 100%);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(139, 92, 246, 0.3);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 5px 15px rgba(139, 92, 246, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Contenu du cercle */
+    .stat-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      padding: 15px;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Icône avec effet de halo */
+    .stat-icon-wrapper {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, 
+        rgba(139, 92, 246, 0.2) 0%,
+        rgba(14, 165, 233, 0.15) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(139, 92, 246, 0.5);
+      box-shadow: 
+        0 0 25px rgba(139, 92, 246, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .stat-icon {
+      font-size: 28px;
+      background: white;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Valeur numérique */
+    .stat-value {
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+      text-shadow: 
+        0 2px 10px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(139, 92, 246, 0.3);
+      transition: all 0.4s ease;
+      letter-spacing: 1px;
+    }
+
+    .stat-suffix {
+      font-size: 1.3rem;
+      color: #a3b5cd;
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Label */
+    .stat-label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.4;
+      max-width: 140px;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      padding: 0 10px;
+    }
+
+    /* Apartments améliorée */
+    .apartments {
+      padding: 80px 0;
+      background: transparent;
+      position: relative;
+    }
+    
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 40px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    .filter-btn {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(139, 92, 246, 0.15);
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    
+    .filter-btn.active {
+      background: var(--accent-gradient);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+    }
+    
+    .apartments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      width: 100%;
+    }
+    
+    .apartment-card {
+      background: var(--card);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(139, 92, 246, 0.15);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      box-shadow: var(--shadow);
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    .apartment-card h3 {
+      color: var(--text-primary);
+    }
+    
+    /* CORRECTION CRITIQUE : Images des appartements avec dimensions fixes */
+    .apartment-img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+    
+    .favorite-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+      background: rgba(30, 41, 59, 0.9);
+      border: 2px solid rgba(139, 92, 246, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-light);
+    }
+    
+    .favorite-btn.active {
+      background: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+      border-color: rgba(239, 68, 68, 0.5);
+    }
+    
+    .favorite-btn.active i {
+      font-weight: 900;
+    }
+    
+    .apartment-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--accent-gradient);
+      color: white;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 700;
+      box-shadow: var(--shadow-light);
+      z-index: 10;
+    }
+    
+    .apartment-content {
+      padding: 24px;
+    }
+    
+    .apartment-title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+    
+    .apartment-location {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+    
+    .apartment-location i {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .apartment-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .apartment-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+    
+    .apartment-feature i {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .apartment-price {
+      font-size: 1.4rem;
+      font-weight: 800;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 10px rgba(139, 92, 246, 0.3);
+    }
+    
+    .apartment-actions {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .apartment-btn {
+      flex: 1;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      text-align: center;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 0;
+    }
+    
+    .apartment-btn.primary {
+      background: var(--accent-gradient);
+      color: white;
+      box-shadow: 0 6px 15px rgba(139, 92, 246, 0.3);
+    }
+    
+    .apartment-btn.secondary {
+      background: transparent;
+      border: 2px solid rgba(139, 92, 246, 0.5);
+      color: #a78bfa;
+    }
+    
+    /* Process améliorée */
+    .process {
+      padding: 80px 0;
+      background: transparent;
+      position: relative;
+    }
+    
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+      width: 100%;
+    }
+    
+    .process-step {
+      background: var(--card);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(139, 92, 246, 0.15);
+      border-radius: var(--radius);
+      text-align: center;
+      padding: 30px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: var(--shadow);
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    .process-step h3 {
+      color: var(--text-primary);
+      margin-bottom: 15px;
+    }
+    
+    .process-step p {
+      color: var(--text-secondary);
+    }
+    
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: var(--accent-gradient);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 0 auto 20px;
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+      transition: all 0.4s ease;
+    }
+    
+    /* Contact améliorée */
+    .contact {
+      padding: 80px 0;
+      background: transparent;
+      position: relative;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      width: 100%;
+    }
+    
+    .contact-info {
+      background: var(--accent-gradient);
+      color: white;
+      padding: 35px;
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      width: 100%;
+      box-sizing border-box;
+    }
+    
+    .contact-info h2 {
+      margin-bottom: 30px;
+      color: white;
+    }
+    
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .contact-item i {
+      font-size: 1.2rem;
+      margin-top: 2px;
+      color: rgba(255, 255, 255, 0.95);
+    }
+    
+    .contact-text h3 {
+      margin: 0 0 6px;
+      font-size: 1.1rem;
+      color: white;
+    }
+    
+    .contact-text p {
+      margin: 0;
+      opacity: 0.9;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 30px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .social-link {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .contact-form {
+      background: var(--card);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(139, 92, 246, 0.15);
+      padding: 35px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      width: 100%;
+      box-sizing border-box;
+    }
+    
+    .contact-form h2 {
+      color: var(--text-primary);
+      margin-bottom: 25px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      color: var(--text-primary);
+      box-sizing: border-box;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: rgba(139, 92, 246, 0.6);
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--accent-gradient);
+      color: white;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+    }
+    
+    /* Footer amélioré */
+    footer {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      padding: 60px 0 30px;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(139, 92, 246, 0.2);
+      width: 100%;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 35px;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+    
+    .footer-col h3 {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid;
+      border-image: var(--accent-gradient) 1;
+      color: white;
+    }
+    
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .footer-link {
+      color: var(--text-muted);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+    
+    .footer-link:hover {
+      color: #a78bfa;
+      transform: translateX(8px);
+    }
+    
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+    
+    .copyright {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+    
+    .copyright strong {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .footer-legal a {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-legal a:hover {
+      color: #a78bfa;
+    }
+    
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--accent-gradient);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(139, 92, 246, 0.4);
+    }
+    
+    /* Modal Styles */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    
+    .modal.active {
+      display: flex;
+    }
+    
+    .modal-content {
+      background: rgba(30, 41, 59, 0.95);
+      backdrop-filter: blur(25px);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-radius: var(--radius);
+      max-width: 550px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow);
+      animation: modalSlideIn 0.3s ease;
+      box-sizing: border-box;
+    }
+    
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px;
+      border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    }
+    
+    .modal-header h2 {
+      margin: 0;
+      color: var(--text-primary);
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 1.5rem;
+    }
+    
+    .modal-close {
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .modal-close:hover {
+      background: rgba(139, 92, 246, 0.2);
+      color: white;
+      transform: rotate(90deg);
+    }
+    
+    .modal-body {
+      padding: 24px;
+    }
+    
+    /* ============================================ */
+    /* CART SIDEBAR - CORRIGÉ POUR MOBILE */
+    /* ============================================ */
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: -70%;
+      width: 20%;
+      height: 100vh;
+      background: rgba(30, 41, 59, 0.98);
+      backdrop-filter: blur(25px);
+      border-left: 1px solid rgba(139, 92, 246, 0.2);
+      box-shadow: -15px 0 40px rgba(0, 0, 0, 0.25);
+      z-index: 1500;
+      transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      max-width: 100vw;
+    }
+    
+    .cart-sidebar.active {
+      right: 0;
+      
+    }
+    
+    .cart-header {
+      padding: 24px;
+      border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.8);
+    }
+    
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      -webkit-overflow-scrolling: touch;
+      box-sizing: border-box;
+    }
+    
+    .cart-item {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+      align-items: center;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    
+    .cart-item-img {
+      width: 70px;
+      height: 50px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    
+    .cart-empty {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+    }
+    
+    .cart-empty i {
+      font-size: 48px;
+      margin-bottom: 20px;
+      opacity: 0.5;
+    }
+    
+    .cart-footer {
+      padding: 20px;
+      border-top: 1px solid rgba(139, 92, 246, 0.2);
+      background: rgba(15, 23, 42, 0.8);
+      box-sizing: border-box;
+    }
+    
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: var(--text-primary);
+    }
+    
+    .cart-total span:last-child {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Notification */
+    .notification-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 3000;
+      max-width: calc(100vw - 40px);
+      box-sizing: border-box;
+    }
+    
+    .notification {
+      background: rgba(30, 41, 59, 0.97);
+      backdrop-filter: blur(25px);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-radius: var(--radius);
+      padding: 15px 20px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      min-width: 280px;
+      max-width: 100%;
+      box-shadow: var(--shadow);
+      border-left: 4px solid;
+      animation: slideInRight 0.3s ease;
+      box-sizing: border-box;
+    }
+    
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+    
+    .notification-success {
+      border-left-color: #10b981;
+    }
+    
+    .notification-error {
+      border-left-color: #ef4444;
+    }
+    
+    .notification-warning {
+      border-left-color: #f59e0b;
+    }
+    
+    .notification-info {
+      border-left-color: #0ea5e9;
+    }
+    
+    /* Search Overlay */
+    .search-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.97);
+      backdrop-filter: blur(10px);
+      z-index: 2000;
+      display: none;
+    }
+    
+    .search-overlay.active {
+      display: block;
+    }
+    
+    .search-container {
+      background: rgba(30, 41, 59, 0.95);
+      backdrop-filter: blur(25px);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      max-width: 700px;
+      margin: 100px auto;
+      border-radius: var(--radius);
+      padding: 35px;
+      box-shadow: var(--shadow);
+      box-sizing: border-box;
+    }
+    
+    /* ============================================ */
+    /* MOBILE MENU - CORRIGÉ POUR ÊTRE PLUS GRAND */
+    /* ============================================ */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 85%;
+      height: 100vh;
+      background: rgba(30, 41, 59, 0.98);
+      backdrop-filter: blur(25px);
+      border-right: 1px solid rgba(139, 92, 246, 0.2);
+      box-shadow: 15px 0 40px rgba(0, 0, 0, 0.25);
+      padding: 80px 25px 25px 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      z-index: 1500;
+      transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+    
+    .mobile-menu.active {
+      left: 0;
+    }
+    
+    .mobile-menu-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 25px;
+      background: rgba(15, 23, 42, 0.8);
+      border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .mobile-menu-header h3 {
+      font-size: 1.2rem;
+      color: white;
+      margin: 0;
+    }
+    
+    .mobile-menu-close {
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-close:hover {
+      background: rgba(139, 92, 246, 0.2);
+      color: white;
+      transform: rotate(90deg);
+    }
+    
+    .mobile-menu a {
+      padding: 18px 20px;
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(139, 92, 246, 0.1);
+      margin-bottom: 8px;
+    }
+    
+    .mobile-menu a:hover {
+      background: rgba(139, 92, 246, 0.15);
+      transform: translateX(5px);
+      border-color: rgba(139, 92, 246, 0.3);
+    }
+    
+    .mobile-menu a i {
+      width: 24px;
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--accent-primary);
+    }
+    
+    .favorite-badge {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: var(--accent-gradient);
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      min-width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      line-height: 16px;
+    }
+    
+    /* MOBILE OPTIMIZATIONS - Styles spécifiques pour mobile */
+    @media (max-width: 768px) {
+      /* Header optimisé pour mobile */
+      .nav-inner {
+        padding: 15px 0;
+        flex-wrap: nowrap;
+        overflow: visible;
+      }
+      
+      .brand {
+        min-width: 0;
+        flex-shrink: 1;
+      }
+      
+      .brand-name {
+        font-size: 1.1rem;
+      }
+      
+      .brand-tagline {
+        font-size: 0.7rem;
+      }
+      
+      nav {
+        display: none;
+      }
+      
+      .header-actions {
+        gap: 8px;
+        margin-left: auto;
+      }
+      
+      .header-action-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+      }
+      
+      .mobile-menu-btn {
+        display: flex;
+        margin-left: 8px;
+      }
+      
+      .cta {
+        display: none;
+      }
+      
+      .hero {
+        padding: 60px 0 30px;
+        flex-direction: column;
+        gap: 30px;
+        min-height: auto;
+      }
+      
+      .hero-carousel {
+        height: 280px;
+        width: 100%;
+        order: -1;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.6rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2.5rem;
+      }
+      
+      /* Simplifier les stats sur mobile */
+      .stats-section {
+        padding: 50px 0;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      
+      .stat-card {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .stat-number {
+        font-size: 2rem;
+      }
+      
+      .stat-suffix {
+        font-size: 1.1rem;
+      }
+      
+      .stat-icon-wrapper {
+        width: 45px;
+        height: 45px;
+      }
+      
+      .stat-icon {
+        font-size: 20px;
+      }
+      
+      .stat-label {
+        font-size: 0.85rem;
+        max-width: 120px;
+      }
+      
+      .features, .apartments, .process, .contact {
+        padding: 50px 0;
+      }
+      
+      .features-grid,
+      .apartments-grid,
+      .process-steps {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .apartment-img {
+        height: 200px;
+      }
+      
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      
+      /* Notification mobile */
+      .notification {
+        min-width: auto;
+        width: 100%;
+        right: 0;
+        left: 0;
+      }
+      
+      .notification-container {
+        right: 0;
+        left: 0;
+        padding: 0 20px;
+      }
+      
+      /* Back to top mobile */
+      .back-to-top {
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+      }
+      
+      /* Cart sidebar mobile */
+       .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100vh;
+      background: rgba(30, 41, 59, 0.98);
+      backdrop-filter: blur(25px);
+      border-left: 1px solid rgba(139, 92, 246, 0.2);
+      box-shadow: -15px 0 40px rgba(0, 0, 0, 0.25);
+      z-index: 1500;
+      transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      max-width: 100vw;
+    }
+    
+    .cart-sidebar.active {
+      right: 0;
+      
+    }
+      
+      .cart-item {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .cart-item-img {
+        width: 80px;
+        height: 60px;
+      }
+      
+      .cart-footer {
+        padding: 15px;
+      }
+    }
+    
+    /* Styles pour très petits mobiles (392px) */
+    @media (max-width: 750px) {
+      .container {
+        padding: 0 12px;
+      }
+      
+      .hero {
+        padding: 40px 0;
+        min-height: auto;
+      }
+      
+      .hero-content {
+        text-align: center;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .hero-actions {
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .btn {
+        padding: 12px 20px;
+        font-size: 0.85rem;
+        width: 100%;
+        justify-content: center;
+      }
+      
+      /* CERCLES PLUS GRANDS SUR TRÈS PETITS ÉCRANS */
+      .stats-grid {
+        grid-template-columns: 1fr !important;
+        gap: 25px !important;
+      }
+      
+      .stat-card {
+        width: 180px !important;
+        height: 180px !important;
+        margin: 0 auto !important;
+      }
+      
+      .stat-number {
+        font-size: 2.2rem !important;
+      }
+      
+      .stat-icon-wrapper {
+        width: 50px !important;
+        height: 50px !important;
+      }
+      
+      .feature-card,
+      .apartment-card,
+      .process-step {
+        padding: 20px;
+      }
+      
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+      }
+      
+      .feature-icon i {
+        font-size: 24px;
+      }
+      
+      .apartment-img {
+        height: 180px;
+      }
+      
+      .apartment-content {
+        padding: 20px;
+      }
+      
+      .apartment-features {
+        gap: 12px;
+      }
+      
+      .apartment-feature {
+        font-size: 0.8rem;
+      }
+      
+      .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+      }
+      
+      .contact-info,
+      .contact-form {
+        padding: 25px;
+      }
+      
+      .footer-content {
+        gap: 25px;
+      }
+      
+      .footer-col h3 {
+        margin-bottom: 15px;
+        font-size: 1rem;
+      }
+      
+      .footer-link {
+        font-size: 0.85rem;
+      }
+      
+      .copyright {
+        font-size: 0.8rem;
+      }
+      
+      /* Cart sidebar pour très petits écrans */
+      .cart-sidebar {
+        width: 100%;
+      }
+      
+      .cart-header {
+        padding: 20px;
+      }
+      
+      .cart-header h2 {
+        font-size: 1.2rem;
+      }
+      
+      .cart-items {
+        padding: 15px;
+      }
+      
+      .cart-item {
+        padding: 10px 0;
+      }
+      
+      .cart-footer {
+        padding: 15px;
+      }
+      
+      .cart-total {
+        font-size: 1.1rem;
+      }
+      
+      /* Modals pour très petits écrans */
+      .modal-content {
+        margin: 10px;
+        padding: 15px;
+      }
+      
+      .modal-header {
+        padding: 20px;
+      }
+      
+      .modal-body {
+        padding: 20px;
+      }
+      
+      /* Mobile menu plus grand sur petits écrans */
+      .mobile-menu {
+        width: 90%;
+        padding: 70px 20px 20px 20px;
+      }
+      
+      .mobile-menu a {
+        padding: 16px 18px;
+        font-size: 1rem;
+      }
+      
+      .mobile-menu-header {
+        padding: 15px 20px;
+      }
+    }
+    
+    /* Correction spécifique pour les très petits écrans */
+    @media (max-width: 392px) {
+      body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+      }
+      
+      .container {
+        padding: 0 10px;
+        width: 100%;
+      }
+      
+      header {
+        padding: 0 10px;
+      }
+      
+      .nav-inner {
+        padding: 12px 0;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      
+      .brand {
+        order: 1;
+      }
+      
+      .header-actions {
+        order: 2;
+        margin-left: 0;
+        width: auto;
+      }
+      
+      .mobile-menu-btn {
+        order: 3;
+      }
+      
+      .hero {
+        padding-top: 70px;
+      }
+      
+      .hero-carousel {
+        height: 200px;
+      }
+      
+      /* SIDEBAR CORRECT */
+      .cart-sidebar {
+        width: 100vw !important;
+        right: -100vw !important;
+      }
+      
+      .cart-sidebar.active {
+        right: 0 !important;
+      }
+      
+      /* Header actions très petits écrans */
+      .header-actions {
+        gap: 6px;
+      }
+      
+      .header-action-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 0.85rem;
+      }
+      
+      .action-badge {
+        min-width: 14px;
+        height: 14px;
+        font-size: 0.6rem;
+        top: -3px;
+        right: -3px;
+      }
+      
+      /* Mobile menu encore plus grand sur très petits écrans */
+      .mobile-menu {
+        width: 95%;
+        padding: 65px 15px 15px 15px;
+      }
+      
+      .mobile-menu a {
+        padding: 15px;
+        font-size: 0.95rem;
+        gap: 12px;
+      }
+      
+      .mobile-menu a i {
+        font-size: 1.1rem;
+      }
+      
+      .mobile-menu-header {
+        padding: 12px 15px;
+      }
+      
+      .mobile-menu-header h3 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Overlay pour lisibilité -->
+  <div class="overlay"></div>
+
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="logo">A</div>
+          <div class="brand-text">
+            <div class="brand-name">Architectura</div>
+            <div class="brand-tagline">Location d'appartements</div>
+          </div>
+        </div>
+        
+        <nav>
+          <a href="#features">Avantages</a>
+          <a href="#apartments">Appartements</a>
+          <a href="#process">Processus</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        
+        <div class="header-actions">
+          <button class="header-action-btn" id="searchBtn" title="Recherche">
+            <i class="fas fa-search"></i>
+          </button>
+          <button class="header-action-btn" id="userBtn" title="Mon compte">
+            <i class="fas fa-user"></i>
+          </button>
+          <button class="header-action-btn" id="cartBtn" title="Panier">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="action-badge cart-badge">0</span>
+          </button>
+          <button class="header-action-btn favorite-badge" id="favoritesBtn" title="Favoris">
+            <i class="fas fa-heart"></i>
+            <span class="badge-count" style="display: none">0</span>
+          </button>
+        </div>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Sidebar - NOUVEAU DESIGN PLUS GRAND -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <h3>Menu</h3>
+      <button class="mobile-menu-close" id="mobileMenuClose">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <a href="#features" class="mobile-menu-link">
+      <i class="fas fa-star"></i>
+      <span>Avantages</span>
+    </a>
+    
+    <a href="#apartments" class="mobile-menu-link">
+      <i class="fas fa-home"></i>
+      <span>Appartements</span>
+    </a>
+    
+    <a href="#stats" class="mobile-menu-link">
+      <i class="fas fa-chart-line"></i>
+      <span>Notre Impact</span>
+    </a>
+    
+    <a href="#process" class="mobile-menu-link">
+      <i class="fas fa-cogs"></i>
+      <span>Processus</span>
+    </a>
+    
+    <a href="#contact" class="mobile-menu-link">
+      <i class="fas fa-phone"></i>
+      <span>Contact</span>
+    </a>
+    
+    <a href="#" id="mobileFavoritesLink" class="mobile-menu-link">
+      <i class="fas fa-heart"></i>
+      <span>Favoris</span>
+      <span class="badge-count" style="display: none">0</span>
+    </a>
+    
+    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(139, 92, 246, 0.2);">
+      <a href="tel:+213870123456" class="mobile-menu-link" style="background: rgba(139, 92, 246, 0.1);">
+        <i class="fas fa-phone-alt"></i>
+        <span>+213 870 123 456</span>
+      </a>
+      
+      <a href="mailto:contact@architectura.dz" class="mobile-menu-link" style="background: rgba(139, 92, 246, 0.1);">
+        <i class="fas fa-envelope"></i>
+        <span>contact@architectura.dz</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="container hero" id="hero">
+    <div class="hero-carousel" id="heroCarousel">
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <!-- Slides will be added dynamically -->
+        </div>
+        <button class="carousel-btn carousel-prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-btn carousel-next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="carousel-indicators">
+          <!-- Indicators will be added dynamically -->
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-content">
+      <span class="kicker">Location d'appartements</span>
+      <h1>Trouvez l'appartement parfait pour votre séjour en Algérie</h1>
+      <p>Architectura vous propose une sélection d'appartements, studios et duplex à louer dans les principales villes algériennes. Des logements modernes, entièrement équipés et disponibles pour court ou long séjour.</p>
+      <div class="hero-actions">
+        <a href="#apartments" class="btn btn-primary">
+          <i class="fas fa-search"></i>
+          Voir les appartements
+        </a>
+        <a href="#contact" class="btn btn-secondary">
+          <i class="fas fa-phone-alt"></i>
+          Contactez-nous
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="container features">
+    <h2 class="section-title">Pourquoi choisir Architectura ?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-home"></i>
+        </div>
+        <h3>Appartements vérifiés</h3>
+        <p>Tous nos appartements sont inspectés régulièrement pour garantir qualité et confort.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>Sécurité garantie</h3>
+        <p>Contrats sécurisés, vérification des locataires et propriétaires pour une location en toute confiance.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-headset"></i>
+        </div>
+        <h3>Assistance 7j/7</h3>
+        <p>Notre équipe est disponible pour vous accompagner tout au long de votre location.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-euro-sign"></i>
+        </div>
+        <h3>Prix transparents</h3>
+        <p>Pas de frais cachés. Tous les coûts sont clairement indiqués dès le début.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section - CORRIGÉE POUR MOBILE -->
+  <section id="stats" class="stats-section">
+    <div class="container stats-container">
+      <div class="stats-intro">
+        <h2>Notre Impact</h2>
+        <p>Des chiffres qui témoignent de notre engagement et de notre croissance continue</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-circle">
+            <div class="stat-content">
+              <div class="stat-icon-wrapper">
+                <i class="fas fa-home stat-icon"></i>
+              </div>
+              <div class="stat-value">
+                <div class="stat-number" data-target="150">150</div>
+                <span class="stat-suffix">+</span>
+              </div>
+              <div class="stat-label">Appartements disponibles</div>
+            </div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-circle">
+            <div class="stat-content">
+              <div class="stat-icon-wrapper">
+                <i class="fas fa-smile stat-icon"></i>
+              </div>
+              <div class="stat-value">
+                <div class="stat-number" data-target="95">95</div>
+                <span class="stat-suffix">%</span>
+              </div>
+              <div class="stat-label">Clients satisfaits</div>
+            </div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-circle">
+            <div class="stat-content">
+              <div class="stat-icon-wrapper">
+                <i class="fas fa-city stat-icon"></i>
+              </div>
+              <div class="stat-value">
+                <div class="stat-number" data-target="12">12</div>
+                <span class="stat-suffix">+</span>
+              </div>
+              <div class="stat-label">Villes desservies</div>
+            </div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-circle">
+            <div class="stat-content">
+              <div class="stat-icon-wrapper">
+                <i class="fas fa-calendar-check stat-icon"></i>
+              </div>
+              <div class="stat-value">
+                <div class="stat-number" data-target="3">3</div>
+                <span class="stat-suffix">ans</span>
+              </div>
+              <div class="stat-label">D'expérience</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Apartments -->
+  <section id="apartments" class="container apartments">
+    <h2 class="section-title">Appartements disponibles</h2>
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">Tous</button>
+      <button class="filter-btn" data-filter="studio">Studios</button>
+      <button class="filter-btn" data-filter="2pieces">2 pièces</button>
+      <button class="filter-btn" data-filter="3pieces">3 pièces</button>
+      <button class="filter-btn" data-filter="duplex">Duplex</button>
+    </div>
+    <div class="apartments-grid" id="apartmentsGrid">
+      <!-- Apartments will be loaded dynamically -->
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="container process">
+    <h2 class="section-title">Comment ça marche ?</h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-number">1</div>
+        <h3>Recherchez</h3>
+        <p>Parcourez notre sélection d'appartements disponibles et choisissez celui qui correspond à vos critères.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">2</div>
+        <h3>Visitez</h3>
+        <p>Prenez rendez-vous pour une visite de l'appartement qui vous intéresse (en présentiel ou virtuel).</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">3</div>
+        <h3>Signez</h3>
+        <p>Signez le contrat de location sécurisé et effectuez le paiement selon les modalités convenues.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">4</div>
+        <h3>Emmenagez</h3>
+        <p>Récupérez les clés et emménagez dans votre nouvel appartement. Nous restons à votre disposition.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container contact">
+    <h2 class="section-title">Contactez-nous</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Nos coordonnées</h2>
+        <div class="contact-details">
+          <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <div class="contact-text">
+              <h3>Téléphone</h3>
+              <p>+213 870 123 456</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div class="contact-text">
+              <h3>Email</h3>
+              <p>contact@architectura.dz</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="contact-text">
+              <h3>Bureaux</h3>
+              <p>123 Rue Didouche Mourad, Alger Centre</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-clock"></i>
+            <div class="contact-text">
+              <h3>Horaires</h3>
+              <p>Lun - Ven : 8h30 - 17h30<br>Samedi : 9h - 13h</p>
+            </div>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h2>Demande d'information</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name" class="form-label">Nom complet *</label>
+            <input type="text" id="name" class="form-control" placeholder="Votre nom" required>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email *</label>
+            <input type="email" id="email" class="form-control" placeholder="votre@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone" class="form-label">Téléphone</label>
+            <input type="tel" id="phone" class="form-control" placeholder="Votre numéro">
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Message *</label>
+            <textarea id="message" class="form-control" placeholder="Votre message..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            <i class="fas fa-paper-plane"></i>
+            Envoyer la demande
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h3>Architectura</h3>
+          <p style="margin-bottom:25px">Votre partenaire de confiance pour la location d'appartements en Algérie.</p>
+          <div class="footer-links">
+            <a href="tel:+213870123456" class="footer-link">
+              <i class="fas fa-phone-alt"></i>
+              +213 870 123 456
+            </a>
+            <a href="mailto:contact@architectura.dz" class="footer-link">
+              <i class="fas fa-envelope"></i>
+              contact@architectura.dz
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Liens rapides</h3>
+          <div class="footer-links">
+            <a href="#features" class="footer-link">Avantages</a>
+            <a href="#apartments" class="footer-link">Appartements</a>
+            <a href="#stats" class="footer-link">Notre Impact</a>
+            <a href="#process" class="footer-link">Processus</a>
+            <a href="#contact" class="footer-link">Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Types d'appartements</h3>
+          <div class="footer-links">
+            <a href="#" class="footer-link">Studios</a>
+            <a href="#" class="footer-link">2 pièces</a>
+            <a href="#" class="footer-link">3 pièces</a>
+            <a href="#" class="footer-link">Duplex</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Villes desservies</h3>
+          <div class="footer-links">
+            <a href="#" class="footer-link">Alger</a>
+            <a href="#" class="footer-link">Oran</a>
+            <a href="#" class="footer-link">Constantine</a>
+            <a href="#" class="footer-link">Annaba</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="copyright">
+          &copy; <strong>Architectura</strong> 2026 — Tous droits réservés
+        </div>
+        <div class="footer-legal">
+          <a href="#">Confidentialité</a>
+          <a href="#">Mentions légales</a>
+          <a href="#">CGU</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
+  <!-- Cart Sidebar - CORRIGÉ POUR MOBILE -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2><i class="fas fa-shopping-cart"></i> Mon panier</h2>
+      <button class="modal-close">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">
+        <i class="fas fa-shopping-cart"></i>
+        <p>Votre panier est vide</p>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">0 DA</span>
+      </div>
+      <button class="btn btn-primary" id="checkoutBtn" style="width: 100%; margin-bottom: 12px;">
+        <i class="fas fa-credit-card"></i> Procéder au paiement
+      </button>
+      <button class="btn btn-secondary" id="clearCartBtn" style="width: 100%;">
+        <i class="fas fa-trash"></i> Vider le panier
+      </button>
+    </div>
+  </div>
+
+  <!-- Favorites Modal -->
+  <div class="modal" id="favoritesModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2><i class="fas fa-heart"></i> Mes favoris</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="favoritesList">
+          <div class="cart-empty">
+            <i class="far fa-heart"></i>
+            <p>Vos favoris sont vides</p>
+            <p style="font-size: 14px; margin-top: 12px;">Ajoutez des appartements à vos favoris pour les retrouver ici</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 35px;">
+        <h2><i class="fas fa-search"></i> Recherche avancée</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="form-group">
+        <label>Ville</label>
+        <select id="searchCity" class="form-control">
+          <option value="">Toutes les villes</option>
+          <option value="alger">Alger</option>
+          <option value="oran">Oran</option>
+          <option value="constantine">Constantine</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Type d'appartement</label>
+        <select id="searchType" class="form-control">
+          <option value="">Tous les types</option>
+          <option value="studio">Studio</option>
+          <option value="2pieces">2 pièces</option>
+          <option value="3pieces">3 pièces</option>
+          <option value="duplex">Duplex</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Prix maximum (DA/mois)</label>
+        <input type="range" id="priceMax" class="form-control" min="20000" max="150000" step="10000" value="150000">
+        <span id="priceMaxValue" style="display: block; text-align: center; margin-top: 10px; color: var(--accent-primary); font-weight: 600;">150 000 DA</span>
+      </div>
+      <button class="btn btn-primary" id="applySearchBtn" style="width: 100%; margin-top: 25px;">
+        <i class="fas fa-filter"></i> Appliquer les filtres
+      </button>
+    </div>
+  </div>
+
+  <!-- User Modal -->
+  <div class="modal" id="userModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2><i class="fas fa-user"></i> Mon compte</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="userContent">
+          <!-- User content will be loaded here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Container -->
+  <div class="notification-container" id="notificationContainer"></div>
+
+  <script>
+    // ============================================
+    // DÉTECTION MOBILE
+    // ============================================
+    
+    const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const isSmallMobile = window.innerWidth <= 392;
+    
+    console.log(`📱 Détection: ${isMobile ? 'Mobile' : 'Desktop'} ${isSmallMobile ? '(Très petit écran)' : ''}`);
+    
+    // ============================================
+    // DONNÉES DE L'APPLICATION
+    // ============================================
+    
+    const apartmentsData = {
+      '1': {
+        id: '1',
+        title: 'Studio moderne centre-ville',
+        price: 25000,
+        image: 'apartment1.jpg',
+        location: 'Alger Centre',
+        type: 'studio',
+        features: [
+          { icon: 'fas fa-bed', text: '1 chambre' },
+          { icon: 'fas fa-bath', text: '1 salle de bain' },
+          { icon: 'fas fa-ruler-combined', text: '35 m²' },
+          { icon: 'fas fa-wifi', text: 'WiFi inclus' }
+        ],
+        description: 'Studio moderne parfaitement équipé en plein cœur d\'Alger. Idéal pour étudiant ou jeune professionnel.'
+      },
+      '2': {
+        id: '2',
+        title: 'Appartement 2 pièces vue mer',
+        price: 40000,
+        image: 'apartment2.jpg',
+        location: 'Oran',
+        type: '2pieces',
+        features: [
+          { icon: 'fas fa-bed', text: '2 chambres' },
+          { icon: 'fas fa-bath', text: '1 salle de bain' },
+          { icon: 'fas fa-ruler-combined', text: '65 m²' },
+          { icon: 'fas fa-car', text: 'Parking' }
+        ],
+        description: 'Bel appartement avec vue imprenable sur la mer. Situé dans un quartier résidentiel calme.'
+      },
+      '3': {
+        id: '3',
+        title: 'Appartement familial 3 pièces',
+        price: 55000,
+        image: 'apartment3.jpg',
+        location: 'Constantine',
+        type: '3pieces',
+        features: [
+          { icon: 'fas fa-bed', text: '3 chambres' },
+          { icon: 'fas fa-bath', text: '2 salles de bain' },
+          { icon: 'fas fa-ruler-combined', text: '90 m²' },
+          { icon: 'fas fa-tshirt', text: 'Lave-linge' }
+        ],
+        description: 'Grand appartement familial dans un quartier résidentiel. Parfait pour une famille.'
+      },
+      '4': {
+        id: '4',
+        title: 'Duplex moderne avec terrasse',
+        price: 85000,
+        image: 'apartment4.jpg',
+        location: 'Hydra, Alger',
+        type: 'duplex',
+        features: [
+          { icon: 'fas fa-bed', text: '3 chambres' },
+          { icon: 'fas fa-bath', text: '2 salles de bain' },
+          { icon: 'fas fa-ruler-combined', text: '120 m²' },
+          { icon: 'fas fa-swimming-pool', text: 'Piscine' }
+        ],
+        description: 'Duplex de luxe avec grande terrasse et vue panoramique. Équipements haut de gamme.'
+      }
+    };
+
+    // Images pour carousel - TOUTES LES IMAGES ONT MAINTENANT LES MÊMES DIMENSIONS (1200x800)
+    const carouselImages = [
+  'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&h=800&fit=crop',
+  'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&h=800&fit=crop',
+  'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=1200&h=800&fit=crop'
+];
+
+    // ============================================
+    // FONCTIONS UTILITAIRES
+    // ============================================
+
+    function formatPrice(price) {
+      return price.toLocaleString('fr-DZ') + ' DA/mois';
+    }
+
+    function showNotification(message, type = 'success') {
+      const container = document.getElementById('notificationContainer');
+      const notification = document.createElement('div');
+      notification.className = `notification notification-${type}`;
+      notification.innerHTML = `
+        <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+        <div style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis;">${message}</div>
+        <button class="modal-close" style="font-size: 16px; margin-left: auto; flex-shrink: 0;">&times;</button>
+      `;
+      
+      container.appendChild(notification);
+      
+      // Auto remove after 5 seconds
+      const removeTimeout = setTimeout(() => {
+        if (notification.parentNode) {
+          notification.remove();
+        }
+      }, 5000);
+      
+      // Close button
+      notification.querySelector('.modal-close').addEventListener('click', () => {
+        clearTimeout(removeTimeout);
+        notification.remove();
+      });
+    }
+
+    function getLocalStorage(key, defaultValue = null) {
+      try {
+        const item = localStorage.getItem(key);
+        return item ? JSON.parse(item) : defaultValue;
+      } catch (e) {
+        console.error('Erreur localStorage:', e);
+        return defaultValue;
+      }
+    }
+
+    function setLocalStorage(key, value) {
+      try {
+        localStorage.setItem(key, JSON.stringify(value));
+      } catch (e) {
+        console.error('Erreur localStorage:', e);
+      }
+    }
+
+    // ============================================
+    // CARROUSEL HERO - CORRIGÉ POUR AVOIR DES IMAGES DE MÊME DIMENSIONS
+    // ============================================
+
+    function initHeroCarousel() {
+      const heroCarousel = document.getElementById('heroCarousel');
+      const carouselContainer = heroCarousel.querySelector('.carousel-container');
+      
+      // Nettoyer le contenu existant
+      carouselContainer.innerHTML = `
+        <div class="carousel-track"></div>
+        <button class="carousel-btn carousel-prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-btn carousel-next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="carousel-indicators"></div>
+      `;
+      
+      const track = carouselContainer.querySelector('.carousel-track');
+      const indicatorsContainer = carouselContainer.querySelector('.carousel-indicators');
+      
+      // Créer les slides avec des images de MÊMES DIMENSIONS
+      carouselImages.forEach((image, index) => {
+        const slide = document.createElement('div');
+        slide.className = 'carousel-slide';
+        
+        // Utiliser un conteneur pour garantir la taille
+        const imgContainer = document.createElement('div');
+        imgContainer.className = 'carousel-image-container';
+        
+        const img = document.createElement('img');
+        img.src = image;
+        img.alt = `Appartement ${index + 1}`;
+        img.className = 'carousel-image';
+        img.loading = index === 0 ? 'eager' : 'lazy';
+        
+        // Précharger l'image pour éviter les problèmes de chargement
+        const preloadImage = new Image();
+        preloadImage.src = image;
+        preloadImage.onload = function() {
+          console.log(`Image ${index + 1} chargée: ${this.width}x${this.height}`);
+        };
+        
+        imgContainer.appendChild(img);
+        slide.appendChild(imgContainer);
+        track.appendChild(slide);
+        
+        const indicator = document.createElement('button');
+        indicator.className = `indicator ${index === 0 ? 'active' : ''}`;
+        indicator.setAttribute('data-slide', index);
+        indicator.addEventListener('click', () => goToSlide(index));
+        indicatorsContainer.appendChild(indicator);
+      });
+      
+      const slides = carouselContainer.querySelectorAll('.carousel-slide');
+      const indicators = carouselContainer.querySelectorAll('.indicator');
+      const prevBtn = carouselContainer.querySelector('.carousel-prev');
+      const nextBtn = carouselContainer.querySelector('.carousel-next');
+      
+      let currentSlide = 0;
+      let autoSlideInterval;
+      
+      function goToSlide(index) {
+        currentSlide = index;
+        track.style.transform = `translateX(-${index * 100}%)`;
+        
+        // Mettre à jour les indicateurs
+        indicators.forEach((indicator, i) => {
+          indicator.classList.toggle('active', i === index);
+        });
+      }
+      
+      function nextSlide() {
+        const nextIndex = (currentSlide + 1) % slides.length;
+        goToSlide(nextIndex);
+      }
+      
+      function prevSlide() {
+        const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+        goToSlide(prevIndex);
+      }
+      
+      function startAutoSlide() {
+        // Arrêter l'intervalle existant
+        if (autoSlideInterval) {
+          clearInterval(autoSlideInterval);
+        }
+        
+        // Démarrer le défilement automatique (uniquement sur desktop)
+        if (!isMobile) {
+          autoSlideInterval = setInterval(nextSlide, 5000);
+        }
+      }
+      
+      function stopAutoSlide() {
+        if (autoSlideInterval) {
+          clearInterval(autoSlideInterval);
+          autoSlideInterval = null;
+        }
+      }
+      
+      // Événements
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          prevSlide();
+          startAutoSlide();
+        });
+      }
+      
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          nextSlide();
+          startAutoSlide();
+        });
+      }
+      
+      // Swipe pour mobile
+      let startX = 0;
+      let endX = 0;
+      
+      track.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        stopAutoSlide();
+      }, { passive: true });
+      
+      track.addEventListener('touchmove', (e) => {
+        endX = e.touches[0].clientX;
+      }, { passive: true });
+      
+      track.addEventListener('touchend', () => {
+        const diff = startX - endX;
+        const threshold = 50; // Seuil minimal pour considérer un swipe
+        
+        if (Math.abs(diff) > threshold) {
+          if (diff > 0) {
+            // Swipe gauche -> prochaine slide
+            nextSlide();
+          } else {
+            // Swipe droite -> slide précédente
+            prevSlide();
+          }
+        }
+        
+        startAutoSlide();
+      }, { passive: true });
+      
+      // Initialisation
+      goToSlide(0);
+      startAutoSlide();
+      
+      // Redémarrer l'auto-slide quand la fenêtre est visible
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+          startAutoSlide();
+        } else {
+          stopAutoSlide();
+        }
+      });
+      
+      // S'assurer que le carrousel a la bonne hauteur
+      const updateCarouselHeight = () => {
+        const carousel = document.querySelector('.hero-carousel');
+        if (carousel) {
+          if (isMobile) {
+            carousel.style.height = '280px';
+          } else if (isSmallMobile) {
+            carousel.style.height = '200px';
+          } else {
+            carousel.style.height = '450px';
+          }
+        }
+      };
+      
+      updateCarouselHeight();
+      window.addEventListener('resize', updateCarouselHeight);
+    }
+
+    // ============================================
+    // GESTION DU PANIER - CORRIGÉ POUR MOBILE
+    // ============================================
+
+    function initCartSystem() {
+      let cart = getLocalStorage('architectura_cart', []);
+      
+      function updateCartBadge() {
+        const badge = document.querySelector('.cart-badge');
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        if (badge) {
+          badge.textContent = totalItems;
+          badge.style.display = totalItems > 0 ? 'flex' : 'none';
+        }
+      }
+      
+      function addToCart(apartmentId) {
+        const apartment = apartmentsData[apartmentId];
+        if (!apartment) return;
+        
+        const existingItem = cart.find(item => item.id === apartmentId);
+        
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push({
+            id: apartmentId,
+            title: apartment.title,
+            price: apartment.price,
+            image: apartment.image,
+            quantity: 1
+          });
+        }
+        
+        setLocalStorage('architectura_cart', cart);
+        updateCartBadge();
+        showNotification(`${apartment.title} ajouté au panier`, 'success');
+      }
+      
+      function removeFromCart(apartmentId) {
+        cart = cart.filter(item => item.id !== apartmentId);
+        setLocalStorage('architectura_cart', cart);
+        updateCartBadge();
+        renderCart();
+      }
+      
+      function clearCart() {
+        cart = [];
+        setLocalStorage('architectura_cart', cart);
+        updateCartBadge();
+        renderCart();
+        showNotification('Panier vidé', 'info');
+      }
+      
+      function renderCart() {
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        
+        if (!cartItems || !cartTotal) return;
+        
+        if (cart.length === 0) {
+          cartItems.innerHTML = `
+            <div class="cart-empty">
+              <i class="fas fa-shopping-cart"></i>
+              <p>Votre panier est vide</p>
+            </div>
+          `;
+          cartTotal.textContent = '0 DA';
+          return;
+        }
+        
+        let total = 0;
+        cartItems.innerHTML = cart.map(item => {
+          const itemTotal = item.price * item.quantity;
+          total += itemTotal;
+          
+          return `
+            <div class="cart-item" data-id="${item.id}">
+              <img src="${item.image}" alt="${item.title}" class="cart-item-img" loading="lazy">
+              <div style="flex: 1; min-width: 0;">
+                <h4 style="margin-bottom: 6px; font-size: ${isSmallMobile ? '0.85rem' : '0.9rem'}; overflow: hidden; text-overflow: ellipsis;">${item.title}</h4>
+                <p style="color: var(--accent-primary); font-weight: 600; margin-bottom: 6px; font-size: ${isSmallMobile ? '0.75rem' : '0.85rem'};">${formatPrice(item.price)}</p>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <button class="btn-secondary" onclick="updateCartQuantity('${item.id}', -1)" style="padding: 5px 8px; font-size: 12px; min-width: 26px;">-</button>
+                  <span style="font-weight: 600; font-size: 0.9rem;">${item.quantity}</span>
+                  <button class="btn-secondary" onclick="updateCartQuantity('${item.id}', 1)" style="padding: 5px 8px; font-size: 12px; min-width: 26px;">+</button>
+                  <button onclick="removeCartItem('${item.id}')" style="margin-left: auto; background: none; border: none; color: #ef4444; cursor: pointer; padding: 4px; flex-shrink: 0;">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+        
+        cartTotal.textContent = total.toLocaleString('fr-DZ') + ' DA';
+      }
+      
+      // Exposer les fonctions globalement
+      window.addToCart = addToCart;
+      window.removeCartItem = removeFromCart;
+      window.updateCartQuantity = function(apartmentId, change) {
+        const item = cart.find(item => item.id === apartmentId);
+        if (item) {
+          item.quantity += change;
+          if (item.quantity <= 0) {
+            removeFromCart(apartmentId);
+          } else {
+            setLocalStorage('architectura_cart', cart);
+            updateCartBadge();
+            renderCart();
+          }
+        }
+      };
+      
+      // Initialisation
+      updateCartBadge();
+      
+      // Événements - CORRIGÉ POUR MOBILE
+      const cartBtn = document.getElementById('cartBtn');
+      if (cartBtn) {
+        cartBtn.addEventListener('click', () => {
+          const cartSidebar = document.getElementById('cartSidebar');
+          cartSidebar.classList.add('active');
+          renderCart();
+        });
+      }
+      
+      const clearCartBtn = document.getElementById('clearCartBtn');
+      if (clearCartBtn) {
+        clearCartBtn.addEventListener('click', clearCart);
+      }
+      
+      const checkoutBtn = document.getElementById('checkoutBtn');
+      if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', () => {
+          if (cart.length === 0) {
+            showNotification('Votre panier est vide', 'error');
+            return;
+          }
+          
+          const user = getLocalStorage('architectura_user');
+          if (!user) {
+            showNotification('Veuillez vous connecter pour continuer', 'error');
+            document.getElementById('userModal').classList.add('active');
+            document.getElementById('cartSidebar').classList.remove('active');
+            return;
+          }
+          
+          // Simuler le paiement
+          showNotification('Paiement en cours...', 'info');
+          setTimeout(() => {
+            clearCart();
+            document.getElementById('cartSidebar').classList.remove('active');
+            showNotification('Réservation confirmée ! Nous vous contacterons rapidement.', 'success');
+          }, 2000);
+        });
+      }
+      
+      // Fermer le panier - CORRIGÉ
+      const cartCloseBtn = document.querySelector('#cartSidebar .modal-close');
+      if (cartCloseBtn) {
+        cartCloseBtn.addEventListener('click', () => {
+          document.getElementById('cartSidebar').classList.remove('active');
+        });
+      }
+    }
+
+    // ============================================
+    // GESTION DES FAVORIS
+    // ============================================
+
+    function initFavoritesSystem() {
+      let favorites = getLocalStorage('architectura_favorites', []);
+      
+      function updateFavoritesBadge() {
+        const badges = document.querySelectorAll('.badge-count');
+        badges.forEach(badge => {
+          badge.textContent = favorites.length;
+          badge.style.display = favorites.length > 0 ? 'flex' : 'none';
+        });
+      }
+      
+      function toggleFavorite(apartmentId) {
+        const index = favorites.indexOf(apartmentId);
+        
+        if (index > -1) {
+          favorites.splice(index, 1);
+          showNotification(`${apartmentsData[apartmentId].title} retiré des favoris`, 'info');
+        } else {
+          favorites.push(apartmentId);
+          showNotification(`${apartmentsData[apartmentId].title} ajouté aux favoris`, 'success');
+        }
+        
+        setLocalStorage('architectura_favorites', favorites);
+        updateFavoritesBadge();
+        renderFavorites();
+        
+        // Mettre à jour les boutons favoris
+        const favoriteBtns = document.querySelectorAll(`.favorite-btn[data-id="${apartmentId}"]`);
+        favoriteBtns.forEach(btn => {
+          btn.classList.toggle('active', favorites.includes(apartmentId));
+          const icon = btn.querySelector('i');
+          icon.className = favorites.includes(apartmentId) ? 'fas fa-heart' : 'far fa-heart';
+        });
+      }
+      
+      function renderFavorites() {
+        const favoritesList = document.getElementById('favoritesList');
+        if (!favoritesList) return;
+        
+        if (favorites.length === 0) {
+          favoritesList.innerHTML = `
+            <div class="cart-empty">
+              <i class="far fa-heart"></i>
+              <p>Vos favoris sont vides</p>
+              <p style="font-size: 14px; margin-top: 12px;">Ajoutez des appartements à vos favoris pour les retrouver ici</p>
+            </div>
+          `;
+          return;
+        }
+        
+        favoritesList.innerHTML = favorites.map(apartmentId => {
+          const apartment = apartmentsData[apartmentId];
+          if (!apartment) return '';
+          
+          return `
+            <div class="cart-item" data-id="${apartment.id}">
+              <img src="${apartment.image}" alt="${apartment.title}" class="cart-item-img" loading="lazy">
+              <div style="flex: 1; min-width: 0;">
+                <h4 style="margin-bottom: 6px; font-size: ${isSmallMobile ? '0.85rem' : '0.9rem'}; overflow: hidden; text-overflow: ellipsis;">${apartment.title}</h4>
+                <p style="color: var(--muted); margin-bottom: 6px; font-size: ${isSmallMobile ? '0.75rem' : '0.85rem'};">${apartment.location}</p>
+                <p style="color: var(--accent-primary); font-weight: 600; margin-bottom: 10px; font-size: ${isSmallMobile ? '0.85rem' : '0.9rem'};">${formatPrice(apartment.price)}</p>
+                <div style="display: flex; gap: 6px;">
+                  <button class="btn-primary" onclick="addToCart('${apartment.id}')" style="padding: 6px 10px; font-size: ${isSmallMobile ? '11px' : '12px'}; flex: 1; min-width: 0;">
+                    <i class="fas fa-cart-plus"></i> Ajouter
+                  </button>
+                  <button class="btn-secondary" onclick="toggleFavorite('${apartment.id}')" style="padding: 6px 10px; font-size: ${isSmallMobile ? '11px' : '12px'}; flex: 1; min-width: 0;">
+                    <i class="fas fa-trash"></i> Retirer
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+      
+      // Exposer la fonction globalement
+      window.toggleFavorite = toggleFavorite;
+      
+      // Initialisation
+      updateFavoritesBadge();
+      
+      // Événements
+      const favoritesBtn = document.getElementById('favoritesBtn');
+      if (favoritesBtn) {
+        favoritesBtn.addEventListener('click', () => {
+          document.getElementById('favoritesModal').classList.add('active');
+          renderFavorites();
+        });
+      }
+      
+      const mobileFavoritesLink = document.getElementById('mobileFavoritesLink');
+      if (mobileFavoritesLink) {
+        mobileFavoritesLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          document.getElementById('favoritesModal').classList.add('active');
+          renderFavorites();
+          document.getElementById('mobileMenu').classList.remove('active');
+        });
+      }
+      
+      // Fermer le modal
+      const favoritesCloseBtn = document.querySelector('#favoritesModal .modal-close');
+      if (favoritesCloseBtn) {
+        favoritesCloseBtn.addEventListener('click', () => {
+          document.getElementById('favoritesModal').classList.remove('active');
+        });
+      }
+    }
+
+    // ============================================
+    // GESTION DES APPARTEMENTS
+    // ============================================
+
+    function initApartments() {
+      const apartmentsGrid = document.getElementById('apartmentsGrid');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      
+      if (!apartmentsGrid) return;
+      
+      function renderApartments(filter = 'all') {
+        apartmentsGrid.innerHTML = '';
+        
+        Object.values(apartmentsData).forEach(apartment => {
+          if (filter !== 'all' && apartment.type !== filter) return;
+          
+          const favorites = getLocalStorage('architectura_favorites', []);
+          const isFavorite = favorites.includes(apartment.id);
+          
+          const card = document.createElement('article');
+          card.className = 'apartment-card';
+          card.setAttribute('data-type', apartment.type);
+          card.innerHTML = `
+            <img src="${apartment.image}" alt="${apartment.title}" class="apartment-img" loading="lazy">
+            <button class="favorite-btn ${isFavorite ? 'active' : ''}" data-id="${apartment.id}" onclick="toggleFavorite('${apartment.id}')">
+              <i class="${isFavorite ? 'fas' : 'far'} fa-heart"></i>
+            </button>
+            <div class="apartment-badge">Disponible</div>
+            <div class="apartment-content">
+              <h3 class="apartment-title">${apartment.title}</h3>
+              <div class="apartment-location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>${apartment.location}</span>
+              </div>
+              <div class="apartment-features">
+                ${apartment.features.map(feature => `
+                  <div class="apartment-feature">
+                    <i class="${feature.icon}"></i>
+                    <span>${feature.text}</span>
+                  </div>
+                `).join('')}
+              </div>
+              <p class="apartment-price">${formatPrice(apartment.price)}</p>
+              <div class="apartment-actions">
+                <button class="apartment-btn primary" onclick="openReservationModal('${apartment.id}')">Réserver</button>
+                <button class="apartment-btn secondary" onclick="addToCart('${apartment.id}')">
+                  <i class="fas fa-cart-plus"></i> Panier
+                </button>
+              </div>
+            </div>
+          `;
+          
+          apartmentsGrid.appendChild(card);
+        });
+      }
+      
+      // Filtres
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderApartments(btn.dataset.filter);
+        });
+      });
+      
+      // Initialisation
+      renderApartments();
+      
+      // Fonction pour ouvrir le modal de réservation
+      window.openReservationModal = function(apartmentId) {
+        const apartment = apartmentsData[apartmentId];
+        if (!apartment) return;
+        
+        showNotification(`Ouverture de la réservation pour ${apartment.title}`, 'info');
+      };
+    }
+
+    // ============================================
+    // FORMULAIRE DE CONTACT
+    // ============================================
+
+    function initContactForm() {
+      const contactForm = document.getElementById('contactForm');
+      
+      if (!contactForm) return;
+      
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        
+        // Validation simple
+        if (!name || !email || !message) {
+          showNotification('Veuillez remplir tous les champs obligatoires', 'error');
+          return;
+        }
+        
+        // Simuler l'envoi
+        showNotification('Envoi en cours...', 'info');
+        
+        setTimeout(() => {
+          contactForm.reset();
+          showNotification('Merci ! Votre message a été envoyé. Nous vous répondrons dans les 24h.', 'success');
+        }, 1500);
+      });
+    }
+
+    // ============================================
+    // SYSTÈME DE RECHERCHE AVANCÉE
+    // ============================================
+
+    function initSearchSystem() {
+      const searchBtn = document.getElementById('searchBtn');
+      const searchOverlay = document.getElementById('searchOverlay');
+      
+      if (!searchBtn || !searchOverlay) return;
+      
+      // Ouvrir la recherche
+      searchBtn.addEventListener('click', () => {
+        searchOverlay.classList.add('active');
+      });
+      
+      // Fermer la recherche
+      const searchCloseBtn = searchOverlay.querySelector('.modal-close');
+      if (searchCloseBtn) {
+        searchCloseBtn.addEventListener('click', () => {
+          searchOverlay.classList.remove('active');
+        });
+      }
+    }
+
+    // ============================================
+    // SYSTÈME UTILISATEUR
+    // ============================================
+
+    function initUserSystem() {
+      const userBtn = document.getElementById('userBtn');
+      const userModal = document.getElementById('userModal');
+      const userContent = document.getElementById('userContent');
+      
+      if (!userBtn || !userModal || !userContent) return;
+      
+      function renderUserContent() {
+        const user = getLocalStorage('architectura_user');
+        
+        if (user) {
+          userContent.innerHTML = `
+            <div style="text-align: center; margin-bottom: 30px;">
+              <div style="width: 80px; height: 80px; background: var(--accent-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2rem; font-weight: 700; box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);">
+                ${user.name.charAt(0).toUpperCase()}
+              </div>
+              <h3 style="margin-bottom: 6px; font-size: 1.2rem;">${user.name}</h3>
+              <p style="color: var(--muted); margin-bottom: 20px;">${user.email}</p>
+            </div>
+            <button class="btn btn-secondary" id="logoutBtn" style="width: 100%;">
+              <i class="fas fa-sign-out-alt"></i> Déconnexion
+            </button>
+          `;
+          
+          // Bouton de déconnexion
+          const logoutBtn = document.getElementById('logoutBtn');
+          if (logoutBtn) {
+            logoutBtn.addEventListener('click', () => {
+              localStorage.removeItem('architectura_user');
+              userModal.classList.remove('active');
+              renderUserContent();
+              showNotification('Déconnexion réussie', 'info');
+            });
+          }
+        } else {
+          userContent.innerHTML = `
+            <form id="loginForm">
+              <div class="form-group">
+                <label for="loginEmail" class="form-label">Email *</label>
+                <input type="email" id="loginEmail" class="form-control" placeholder="votre@email.com" required>
+              </div>
+              <div class="form-group">
+                <label for="loginPassword" class="form-label">Mot de passe *</label>
+                <input type="password" id="loginPassword" class="form-control" placeholder="Votre mot de passe" required>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 20px;">
+                <i class="fas fa-sign-in-alt"></i> Se connecter
+              </button>
+            </form>
+          `;
+          
+          // Connexion
+          const loginForm = document.getElementById('loginForm');
+          if (loginForm) {
+            loginForm.addEventListener('submit', (e) => {
+              e.preventDefault();
+              
+              const email = document.getElementById('loginEmail').value;
+              const password = document.getElementById('loginPassword').value;
+              
+              // Simulation de connexion
+              if (email && password) {
+                const user = {
+                  name: email.split('@')[0],
+                  email: email,
+                  phone: '+213 000 000 000'
+                };
+                
+                setLocalStorage('architectura_user', user);
+                userModal.classList.remove('active');
+                renderUserContent();
+                showNotification('Connexion réussie !', 'success');
+              } else {
+                showNotification('Veuillez remplir tous les champs', 'error');
+              }
+            });
+          }
+        }
+      }
+      
+      // Ouvrir le modal utilisateur
+      userBtn.addEventListener('click', () => {
+        userModal.classList.add('active');
+        renderUserContent();
+      });
+      
+      // Initialisation
+      renderUserContent();
+    }
+
+    // ============================================
+    // MOBILE MENU - NOUVEAU DESIGN PLUS GRAND
+    // ============================================
+
+    function initMobileMenu() {
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuClose = document.getElementById('mobileMenuClose');
+      
+      if (!mobileMenuBtn || !mobileMenu || !mobileMenuClose) return;
+      
+      // Ouvrir le menu mobile
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+      });
+      
+      // Fermer le menu mobile
+      mobileMenuClose.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+      
+      // Fermer le menu en cliquant sur un lien
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+        });
+      });
+      
+      // Fermer le menu en cliquant en dehors
+      document.addEventListener('click', (e) => {
+        if (mobileMenu.classList.contains('active') && 
+            !mobileMenu.contains(e.target) && 
+            e.target !== mobileMenuBtn && 
+            !mobileMenuBtn.contains(e.target)) {
+          mobileMenu.classList.remove('active');
+        }
+      });
+    }
+
+    // ============================================
+    // FONCTIONNALITÉS GÉNÉRALES
+    // ============================================
+
+    function initGeneralFeatures() {
+      // Header scroll effect
+      window.addEventListener('scroll', () => {
+        const header = document.getElementById('header');
+        if (!header) return;
+        
+        if (window.scrollY > 50) {
+          header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)';
+          header.style.backdropFilter = isMobile ? 'blur(10px)' : 'blur(25px)';
+        } else {
+          header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+          header.style.backdropFilter = isMobile ? 'blur(10px)' : 'blur(20px)';
+        }
+      });
+      
+      // Back to top button
+      const backToTop = document.getElementById('backToTop');
+      if (backToTop) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 300) {
+            backToTop.classList.add('visible');
+          } else {
+            backToTop.classList.remove('visible');
+          }
+        });
+        
+        backToTop.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+      
+      // Fermer les modals
+      document.querySelectorAll('.modal-close').forEach(closeBtn => {
+        closeBtn.addEventListener('click', function() {
+          const modal = this.closest('.modal');
+          if (modal) {
+            modal.classList.remove('active');
+          }
+          document.getElementById('cartSidebar').classList.remove('active');
+          document.getElementById('searchOverlay').classList.remove('active');
+        });
+      });
+      
+      // Fermer les modals en cliquant en dehors
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            modal.classList.remove('active');
+          }
+        });
+      });
+      
+      // Fermer le cart sidebar en cliquant en dehors
+      const cartSidebar = document.getElementById('cartSidebar');
+      if (cartSidebar) {
+        document.addEventListener('click', (e) => {
+          if (cartSidebar.classList.contains('active') && 
+              !cartSidebar.contains(e.target) && 
+              e.target.id !== 'cartBtn' && 
+              !e.target.closest('#cartBtn')) {
+            cartSidebar.classList.remove('active');
+          }
+        });
+      }
+    }
+
+    // ============================================
+    // INITIALISATION
+    // ============================================
+
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('🚀 Initialisation du site Architectura');
+      
+      // Initialiser les fonctionnalités principales
+      initGeneralFeatures();
+      initMobileMenu(); // Initialiser le menu mobile PLUS GRAND
+      initHeroCarousel(); // Initialiser le carrousel CORRIGÉ avec images de même dimensions
+      initApartments();
+      initContactForm();
+      initCartSystem();
+      initFavoritesSystem();
+      initSearchSystem();
+      initUserSystem();
+      
+      console.log('✅ Site initialisé avec succès');
+    });
+  </script>
+</body>
+</html>
